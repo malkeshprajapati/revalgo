@@ -26,7 +26,8 @@ const useApiRequest = () => {
           message: res.message,
         };
       } else {
-        return await response.json();
+        const data = await response.json();
+        return { status: response.status, ...data };
       }
     } catch (error) {
       return { error };

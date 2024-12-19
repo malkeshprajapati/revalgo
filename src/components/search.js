@@ -6,16 +6,18 @@ import {
 } from "../styles/searchStyles";
 import useApiRequest from "../htttpClient";
 import { useDispatch } from "react-redux";
-import { setUsers, setSearch } from "../features/userSlice";
+import { setUsers, setSearch, setStatus } from "../features/userSlice";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const apiRequest = useApiRequest();
+
   const handleSearch = async () => {
     if (query.length) {
       const search = await apiRequest(`users/search?q=${query}`);
       dispatch(setUsers(search.users));
+      dispatch(setStatus(search.status));
       dispatch(setSearch(true));
     }
   };
@@ -30,7 +32,7 @@ const Search = () => {
     <SearchContainer>
       <SearchInput
         type="text"
-        placeholder="Search..."
+        placeholder="Search name"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />

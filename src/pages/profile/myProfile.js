@@ -13,17 +13,17 @@ const MyProfile = () => {
   const [user, setUser] = useState();
   const apiRequest = useApiRequest();
   const location = useLocation();
-  console.log(location);
   const { id } = useParams();
-  const FetchProfileData = async () => {
+
+  const fetchProfileData = async () => {
     const data = await apiRequest(
-      `user/${id & (location.pathname != "/profile") ? id : 1}`
+      `user/${id && location.pathname != "/profile" ? id : 1}`
     );
     setUser(data);
   };
 
   useEffect(() => {
-    FetchProfileData();
+    fetchProfileData();
   }, [location.pathname]);
 
   return (
