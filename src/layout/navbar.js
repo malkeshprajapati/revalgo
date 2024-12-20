@@ -1,6 +1,6 @@
 import React from "react";
 import { NavbarStyle } from "../styles/layoutStyle";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Search from "../components/search";
 import { IoMdMenu } from "react-icons/io";
 

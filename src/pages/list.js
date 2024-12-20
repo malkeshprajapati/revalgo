@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import useApiRequest from "../htttpClient";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -82,6 +82,7 @@ const List = () => {
     dispatch(setSortAndFilter({ sortBy: "", filter: "" }));
   };
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     if (!search) {
       fetchUsers(currentPage, sortBy, filter);

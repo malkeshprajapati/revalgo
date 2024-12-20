@@ -17,11 +17,11 @@ const MyProfile = () => {
 
   const fetchProfileData = async () => {
     const data = await apiRequest(
-      `user/${id && location.pathname != "/profile" ? id : 1}`
+      `user/${id && location.pathname !== "/profile" ? id : 1}`
     );
     setUser(data);
   };
-
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     fetchProfileData();
   }, [location.pathname]);

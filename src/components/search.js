@@ -22,6 +22,7 @@ const Search = () => {
     }
   };
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     if (query.length < 1) {
       dispatch(setSearch(false));

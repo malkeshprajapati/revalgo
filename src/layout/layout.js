@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./navbar";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import {
   LayoutContainer,
   MainContent,
@@ -22,6 +22,7 @@ const Layout = () => {
     setSidebarShow(!sidebarShow);
   };
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     dispatch(setScroll(ref.current));
   }, []);
